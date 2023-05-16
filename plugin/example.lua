@@ -1,0 +1,1 @@
+-- this code run when vim loads immediately

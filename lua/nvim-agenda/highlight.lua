@@ -153,7 +153,7 @@ function M.start()
     [[augroup Todo
         autocmd!
         autocmd BufEnter,BufWinEnter * lua require("nvim-agenda.highlight").attach()
-        autocmd WinScrolled * lua require("nvim-agenda.highlight").highlight_window()
+        autocmd WinScrolled,BufWritePost * lua require("nvim-agenda.highlight").highlight_window()
       augroup end]],
     false
   )

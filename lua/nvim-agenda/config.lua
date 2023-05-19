@@ -7,8 +7,9 @@ local defaults = {
   signs = true,
   signs_priority = 99,
   keywords = {
-    TODO = { icon = " ", color = "hint", alt = { "INFO" } },
-    DONE = { icon = " ", color = "info" },
+    TODO = { icon = " ", color = "yellow" },
+    FOCUS = { icon = "󱠇 ", color = "orange" },
+    DONE = { icon = " ", color = "green" },
   },
   pattern = [[\KEYWORDS]],
   throttle = 200,
@@ -43,10 +44,14 @@ function M.setup()
 end
 
 function M.signs()
+  vim.api.nvim_set_hl(0, "green",  { fg = "#9ece6a", bg = "#3c3d40" })
+  vim.api.nvim_set_hl(0, "yellow", { fg = "#FFFF00", bg = "#3c3d40" })
+  vim.api.nvim_set_hl(0, "orange", { fg = "#f09000", bg = "#3c3d40" })
+
   for kw, opts in pairs(M.options.keywords) do
     vim.fn.sign_define("agenda-sign-" .. kw, {
       text = opts.icon,
-      texthl = "AgendaSign" .. kw,
+      texthl = opts.color,
     })
   end
 end

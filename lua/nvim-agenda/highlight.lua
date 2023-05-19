@@ -6,6 +6,7 @@ M.windows = {}
 M.buffers = {}
 
 -- TODO
+-- FOCUS
 -- DONE
 
 function M.match_keyword(string)
@@ -85,8 +86,8 @@ function M.attach(windowId)
         M.set_state(buffer, first, last_new)
       end,
       on_detach = function()
-        M.state[buffer] = nil
-        M.bufs[buffer] = nil
+        M.states[buffer] = nil
+        M.buffers[buffer] = nil
       end,
     })
 
@@ -151,7 +152,7 @@ function M.start()
   vim.api.nvim_exec(
     [[augroup Todo
         autocmd!
-        autocmd BufEnter,WinEnter,TabEnter,BufWinEnter * lua require("nvim-agenda.highlight").attach()
+        autocmd BufEnter,BufWinEnter * lua require("nvim-agenda.highlight").attach()
         autocmd WinScrolled * lua require("nvim-agenda.highlight").highlight_window()
       augroup end]],
     false

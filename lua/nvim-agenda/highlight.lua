@@ -129,7 +129,7 @@ function M.stop()
   M.enabled = false
   pcall(vim.cmd, "autocmd! Agenda")
   pcall(vim.cmd, "augroup! Agenda")
-  M.wins = {}
+  M.windows = {}
 
   ---@diagnostic disable-next-line: missing-parameter
   vim.fn.sign_unplace("agenda-signs")

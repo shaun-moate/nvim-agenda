@@ -7,10 +7,10 @@ M.options = {}
 
 local defaults = {
   keywords = {
-    SUSPEND = { icon = " ", color = "red" },
-    TODO = { icon = " ", color = "orange" },
-    FOCUS = { icon = "󱠇 ", color = "yellow" },
-    DONE = { icon = " ", color = "green" },
+    SUSPEND = { icon = " ", color = "AgendaRed" },
+    TODO = { icon = " ", color = "AgendaOrange" },
+    FOCUS = { icon = "󱠇 ", color = "AgendaYellow" },
+    DONE = { icon = " ", color = "AgendaGreen" },
   },
   pattern = [[\KEYWORDS]],
   signs = true,
@@ -61,17 +61,16 @@ function M.set_colors()
   local colorscheme = M.options.theme
 
   if M.tableHasKey(Colors, colorscheme) then
-    vim.api.nvim_set_hl(0, "green",  { fg = Colors[colorscheme].green, bg = Colors[colorscheme].dark_bg })
-    vim.api.nvim_set_hl(0, "yellow", { fg = Colors[colorscheme].yellow, bg = Colors[colorscheme].dark_bg })
-    vim.api.nvim_set_hl(0, "orange", { fg = Colors[colorscheme].orange, bg = Colors[colorscheme].dark_bg })
-    vim.api.nvim_set_hl(0, "red", { fg = Colors[colorscheme].red, bg = Colors[colorscheme].dark_bg })
+    vim.api.nvim_set_hl(0, "AgendaGreen",  { fg = Colors[colorscheme].green, bg = Colors[colorscheme].dark_bg })
+    vim.api.nvim_set_hl(0, "AgendaYellow", { fg = Colors[colorscheme].yellow, bg = Colors[colorscheme].dark_bg })
+    vim.api.nvim_set_hl(0, "AgendaOrange", { fg = Colors[colorscheme].orange, bg = Colors[colorscheme].dark_bg })
+    vim.api.nvim_set_hl(0, "AgendaRed", { fg = Colors[colorscheme].red, bg = Colors[colorscheme].dark_bg })
   end
 end
 
 function M.tableHasKey(table, key)
     return table[key] ~= nil
 end
-
 
 return M
 

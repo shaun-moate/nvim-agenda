@@ -14,6 +14,7 @@ M.buffers = {}
 function M.highlight(buffer, first, last)
   local lines = vim.api.nvim_buf_get_lines(buffer, first, last + 1, false)
 
+  M.remove_signs()
   for l, line in ipairs(lines) do
     local keyword = Utils.match_keyword(line)
     local line_number = first + l - 1
@@ -29,6 +30,7 @@ function M.highlight(buffer, first, last)
           { lnum = line_number + 1, priority = Config.options.signs_priority }
         )
       end
+      vim.api.nvim_buf_add_highlight(buffer, 0, Config.options.keywords[keyword[1]].color, line_number, keyword[2], keyword[3])
     end
   end
 end
@@ -132,14 +134,17 @@ function M.stop()
   pcall(vim.cmd, "augroup! Agenda")
   M.windows = {}
 
-  ---@diagnostic disable-next-line: missing-parameter
+  M.remove_signs()
+  M.buffers = {}
+end
+
+function M.remove_signs()
   vim.fn.sign_unplace("agenda-signs")
   for buf, _ in pairs(M.buffers) do
     if vim.api.nvim_buf_is_valid(buf) then
-      pcall(vim.api.nvim_buf_clear_namespace, buf, Config.ns, 0, -1)
+      pcall(vim.api.nvim_buf_clear_namespace, buf, Config.namespace, 0, -1)
     end
   end
-  M.buffers = {}
 end
 
 return M

@@ -7,8 +7,9 @@ M.options = {}
 
 local defaults = {
   keywords = {
-    TODO = { icon = " ", color = "yellow" },
-    FOCUS = { icon = "󱠇 ", color = "orange" },
+    DROP = { icon = " ", color = "red" },
+    TODO = { icon = " ", color = "orange" },
+    FOCUS = { icon = "󱠇 ", color = "yellow" },
     DONE = { icon = " ", color = "green" },
   },
   pattern = [[\KEYWORDS]],
@@ -63,6 +64,7 @@ function M.set_colors()
     vim.api.nvim_set_hl(0, "green",  { fg = Colors[colorscheme].green, bg = Colors[colorscheme].dark_bg })
     vim.api.nvim_set_hl(0, "yellow", { fg = Colors[colorscheme].yellow, bg = Colors[colorscheme].dark_bg })
     vim.api.nvim_set_hl(0, "orange", { fg = Colors[colorscheme].orange, bg = Colors[colorscheme].dark_bg })
+    vim.api.nvim_set_hl(0, "red", { fg = Colors[colorscheme].red, bg = Colors[colorscheme].dark_bg })
   end
 end
 

@@ -1,9 +1,11 @@
 local M = {
   default = {
     dark_bg = "#000000",
+    dark_fg = "#EBDBB2",
     green = "#454B1B",
     yellow = "#FFFF00",
     orange = "#F09000",
+    red = "#FB4934",
   },
   gruvbox = {
     dark_bg = "#3C3836",

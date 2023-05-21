@@ -9,7 +9,7 @@ M.buffers = {}
 -- TODO
 -- FOCUS
 -- DONE
--- DROP
+-- SUSPEND
 
 function M.highlight(buffer, first, last)
   local lines = vim.api.nvim_buf_get_lines(buffer, first, last + 1, false)

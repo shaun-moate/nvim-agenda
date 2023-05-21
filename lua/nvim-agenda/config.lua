@@ -7,7 +7,7 @@ M.options = {}
 
 local defaults = {
   keywords = {
-    DROP = { icon = " ", color = "red" },
+    SUSPEND = { icon = " ", color = "red" },
     TODO = { icon = " ", color = "orange" },
     FOCUS = { icon = "󱠇 ", color = "yellow" },
     DONE = { icon = " ", color = "green" },

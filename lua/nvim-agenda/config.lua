@@ -7,9 +7,7 @@ M.options = {}
 
 local defaults = {
   keywords = {
-    SUSPEND = { icon = " ", color = "AgendaRed" },
-    TODO = { icon = " ", color = "AgendaOrange" },
-    FOCUS = { icon = "󱠇 ", color = "AgendaYellow" },
+    TODO = { icon = " ", color = "AgendaYellow" },
     DONE = { icon = " ", color = "AgendaGreen" },
   },
   pattern = [[\KEYWORDS]],

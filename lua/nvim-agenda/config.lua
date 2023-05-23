@@ -43,7 +43,6 @@ function M._setup(customOptions)
 
   M.set_colors()
   M.signs()
-  P(M.options)
   require("nvim-agenda.highlight").start()
   M.loaded = true
 end

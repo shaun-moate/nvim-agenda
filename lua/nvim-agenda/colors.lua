@@ -1,3 +1,7 @@
+-- TODO: add blue to each theme and 'AgendaBlue' in config.lua
+-- TODO: improve the default theme
+-- TODO: add support for 'dracula' color scheme
+-- TODO: add support for 'nord' color scheme
 local M = {
   default = {
     dark_bg = "#000000",

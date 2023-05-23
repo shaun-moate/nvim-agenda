@@ -1,8 +1,8 @@
 -- TODO implement a setup function that takes in {opts} and kicks off nvim-agenda
 local M = {}
 
-function M.setup()
-  require("nvim-agenda.config").setup()
+function M.setup(customOptions)
+  require("nvim-agenda.config")._setup(customOptions)
 end
 
 function M.enable()

@@ -15,12 +15,11 @@ local defaults = {
   pattern = [[\KEYWORDS]],
   signs = true,
   signs_priority = 99,
-  theme = "gruvbox",
   throttle = 200,
 }
 
-function M.setup()
-  M.options = vim.tbl_deep_extend("force", {}, defaults)
+function M._setup(customOptions)
+  M.options = vim.tbl_deep_extend("force", {}, defaults, customOptions or {})
 
   local function tags(keywords)
     local kws = keywords or vim.tbl_keys(M.options.keywords)
@@ -44,6 +43,7 @@ function M.setup()
 
   M.set_colors()
   M.signs()
+  P(M.options)
   require("nvim-agenda.highlight").start()
   M.loaded = true
 end

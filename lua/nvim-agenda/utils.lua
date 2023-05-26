@@ -9,7 +9,7 @@ function M.match_keyword(string)
   local match = vim.fn.matchstrpos(string, [[\v\C]] .. pattern)
 
   if match[1] ~= "" then
-    return match
+    return match[1], match[2], match[3]
   end
 end
 

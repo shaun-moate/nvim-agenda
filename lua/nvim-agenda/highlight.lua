@@ -6,31 +6,26 @@ M.states = {}
 M.windows = {}
 M.buffers = {}
 
--- TODO
--- FOCUS
--- DONE
--- SUSPEND
-
 function M.highlight(buffer, first, last)
   local lines = vim.api.nvim_buf_get_lines(buffer, first, last + 1, false)
 
   M.remove_signs()
   for l, line in ipairs(lines) do
-    local keyword = Utils.match_keyword(line)
+    local kw, start, finish = Utils.match_keyword(line)
     local line_number = first + l - 1
 
-    if keyword ~= nil then
+    if kw ~= nil then
       local show_sign = Config.options.signs
       if show_sign then
         vim.fn.sign_place(
           0,
           "agenda-signs",
-          "agenda-sign-" .. keyword[1],
+          "agenda-sign-" .. kw,
           buffer,
           { lnum = line_number + 1, priority = Config.options.signs_priority }
         )
       end
-      vim.api.nvim_buf_add_highlight(buffer, 0, Config.options.keywords[keyword[1]].color, line_number, keyword[2], keyword[3])
+      vim.api.nvim_buf_add_highlight(buffer, 0, Config.options.keywords[kw].color, line_number, start, finish)
     end
   end
 end

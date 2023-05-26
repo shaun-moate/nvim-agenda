@@ -1,4 +1,3 @@
--- TODO implement a setup function that takes in {opts} and kicks off nvim-agenda
 local M = {}
 
 function M.setup(customOptions)

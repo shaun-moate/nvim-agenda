@@ -10,7 +10,7 @@ local make_entry = require("telescope.make_entry")
 
 local function find_lines()
   local opts = {}
-  local keywords =  Config.tags(Config.options.find_lines_keywords)
+  local keywords =  Config.tags(Config.options.telescope_keywords)
 
   opts.prompt_title = "nvim-agenda: find lines"
   opts.search = keywords
@@ -28,8 +28,8 @@ local function find_lines()
       if kw then
         local icon = Config.options.keywords[kw].icon
         display = icon .. " " .. kw .. " " .. display
-        table.insert(hl, { { 1, #icon }, Config.options.keywords[kw].color })
-        table.insert(hl, { { #icon + 1, #icon + #kw + 1 }, Config.options.keywords[kw].color })
+        table.insert(hl, { { 1, #icon }, Config.options.keywords[kw].telescope_color })
+        table.insert(hl, { { #icon + 1, #icon + #kw + 1 }, Config.options.keywords[kw].telescope_color })
       end
 
       return display, hl

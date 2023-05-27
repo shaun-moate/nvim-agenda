@@ -6,13 +6,21 @@ M.namespace = vim.api.nvim_create_namespace("nvim-agenda")
 M.options = {}
 
 local defaults = {
-  find_lines_keywords = { "TODO" },
   keywords = {
-    TODO = { icon = " ", color = "AgendaYellow" },
-    DONE = { icon = " ", color = "AgendaGreen" },
+    TODO = {
+      icon = " ",
+      color = "AgendaYellow",
+      telescope_color = "AgendaYellowTransparentBg"
+    },
+    DONE = {
+      icon = " ",
+      color = "AgendaGreen",
+      telescope_color = "AgendaGreenTransparentBg"
+    },
   },
   signs = true,
   signs_priority = 99,
+  telescope_keywords = { "TODO" },
   throttle = 200,
   pattern = [[\KEYWORDS]],
 }
@@ -59,6 +67,10 @@ function M.set_colors()
     vim.api.nvim_set_hl(0, "AgendaYellow", { fg = Colors[colorscheme].yellow, bg = Colors[colorscheme].dark_bg })
     vim.api.nvim_set_hl(0, "AgendaOrange", { fg = Colors[colorscheme].orange, bg = Colors[colorscheme].dark_bg })
     vim.api.nvim_set_hl(0, "AgendaRed", { fg = Colors[colorscheme].red, bg = Colors[colorscheme].dark_bg })
+    vim.api.nvim_set_hl(0, "AgendaGreenTransparentBg",  { fg = Colors[colorscheme].green, bg = "NONE" })
+    vim.api.nvim_set_hl(0, "AgendaYellowTransparentBg", { fg = Colors[colorscheme].yellow, bg = "NONE" })
+    vim.api.nvim_set_hl(0, "AgendaOrangeTransparentBg", { fg = Colors[colorscheme].orange, bg = "NONE" })
+    vim.api.nvim_set_hl(0, "AgendaRedTransparentBg", { fg = Colors[colorscheme].red, bg = "NONE" })
   end
 end
 

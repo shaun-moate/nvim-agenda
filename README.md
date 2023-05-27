@@ -32,13 +32,21 @@ require'nvim-agenda'.setup({
 nvim-agenda comes with default configuration that you can override
 ```lua
 {
-  find_lines_keywords = { "TODO" },                  -- keywords to search for when using AgendaTelescope
-  keywords = {
-    TODO = { icon = " ", color = "AgendaYellow" },  -- keywords with patch font icon and colorscheme
-    DONE = { icon = " ", color = "AgendaGreen" },
+  keywords = {                                       -- keywords with patch font icon and colorscheme
+    TODO = { 
+			icon = " ", 
+			color = "AgendaYellow",                        
+			telescope_color = "AgendaYellowTransparentBg"
+			},  
+    DONE = { 
+			icon = " ", 
+			color = "AgendaGreen",
+			telescope_color = "AgendaGreenTransparentBg"
+			},
   },
   signs = true,                                      -- toggle to show icons  
   signs_priority = 99,                               -- priority of icons
+  telescope_keywords = { "TODO" },                   -- keywords to search for when using AgendaTelescope
   throttle = 200,                                    -- throttle for highlight loop
   pattern = [[\KEYWORDS]],                           -- vim grep search pattern
 }
@@ -50,13 +58,29 @@ vim.opt.runtimepath:append([/home/user/code/nvim-agenda])
 
 require'nvim-agenda'.setup({
   keywords = {
-    SUSPEND = { icon = "󱍥 ", color = "AgendaRed" },
-    TODO = { icon = " ", color = "AgendaYellow" },
-    FOCUS = { icon = "󰈸 ", color = "AgendaOrange" },
-    DONE = { icon = " ", color = "AgendaGreen" },
+    SUSPEND = { 
+			icon = "󱍥 ", 
+			color = "AgendaRed" 
+			telescope_color = "AgendaRedTransparentBg"
+			},
+    TODO = { 
+			icon = " ", 
+			color = "AgendaYellow" 
+			telescope_color = "AgendaYellowTransparentBg"
+			},
+    FOCUS = { 
+			icon = "󰈸 ", 
+			color = "AgendaOrange" 
+			telescope_color = "AgendaOrangeTransparentBg"
+			},
+    DONE = { 
+			icon = " ", 
+			color = "AgendaGreen" 
+			telescope_color = "AgendaGreenTransparentBg"
+			},
   },
+  telescope_keywords = { "SUSPEND", "TODO", "FOCUS" },
   theme = "gruvbox",
-  find_lines_keywords = { "SUSPEND", "TODO", "FOCUS" }
 })
 
 -- set up keymap for easy access to AgendaTelescope

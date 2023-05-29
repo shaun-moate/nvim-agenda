@@ -2,8 +2,7 @@ name: generate-help
 
 on: [push]
 
-permissions:
-  actions: write
+permissions: write-all
 
 jobs:
   docs:

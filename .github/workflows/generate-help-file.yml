@@ -2,10 +2,13 @@ name: generate-help
 
 on: [push]
 
+permissions:
+  actions: write
+
 jobs:
   docs:
     runs-on: ubuntu-latest
-    name: pandoc to vimdoc
+    name: generate-help-file-from-readme
     steps:
       - uses: actions/checkout@v2
       - name: panvimdoc

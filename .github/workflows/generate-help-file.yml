@@ -13,8 +13,8 @@ jobs:
       - name: panvimdoc
         uses: kdheepak/panvimdoc@main
         with:
-          vimdoc: help-nvim-agenda
+          vimdoc: help
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
-          commit_message: "Auto-generate help documentation"
+          commit_message: "Agenda.GitHubBot: auto-generate help documentation"
           branch: ${{ github.head_ref }}

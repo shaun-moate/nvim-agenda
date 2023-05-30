@@ -3,3 +3,6 @@ test:
 
 lint:
 	luacheck lua/nvim-agenda
+
+style:
+	stylua --color always --check lua/nvim-agenda

@@ -57,7 +57,7 @@ jobs:
   docs:
     runs-on: ubuntu-latest
     name: help-file
-    needs: unit-tests
+    needs: unit_tests
     steps:
       - uses: actions/checkout@v2
       - name: panvimdoc

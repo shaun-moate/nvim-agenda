@@ -5,8 +5,21 @@ on: [pull_request]
 permissions: write-all
 
 jobs:
+  lint:
+    name: luacheck
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v3
+      - name: prepare
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y luarocks
+          sudo luarocks install luacheck
+      - name: lint
+        run: sudo make lint
   unit_tests:
     name: unit-tests
+    needs: lint
     runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: false

@@ -6,7 +6,7 @@ permissions: write-all
 
 jobs:
   lint:
-    name: luacheck
+    name: linter-luacheck
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v3
@@ -17,9 +17,21 @@ jobs:
           sudo luarocks install luacheck
       - name: lint
         run: sudo make lint
-  unit_tests:
-    name: unit-tests
+  stylua:
+    name: style-stylua
     needs: lint
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v3
+      - uses: JohnnyMorganz/stylua-action@v3
+        with:
+          # token: ${{ secrets.GITHUB_TOKEN }}
+          version: latest
+          # CLI arguments
+          args: --color always --check lua/
+  tests:
+    name: unit-tests
+    needs: style
     runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: false
@@ -70,7 +82,7 @@ jobs:
   docs:
     runs-on: ubuntu-latest
     name: help-file
-    needs: unit_tests
+    needs: tests
     steps:
       - uses: actions/checkout@v2
       - name: panvimdoc

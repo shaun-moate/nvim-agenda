@@ -1,1 +1,1 @@
--- TODO: implement way to toggle between status ie. <space>mtt would toggle/add TODO inline or similar for <space>mtd would toggle/add DONE inline
+-- TODO: implement toggle finctionality

@@ -5,7 +5,7 @@ on: [pull_request]
 permissions: write-all
 
 jobs:
-  lint:
+  luacheck:
     name: linter-luacheck
     runs-on: ubuntu-22.04
     steps:
@@ -19,7 +19,7 @@ jobs:
         run: sudo make lint
   stylua:
     name: style-stylua
-    needs: lint
+    needs: luacheck
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v3
@@ -31,7 +31,7 @@ jobs:
           args: --color always --check lua/
   tests:
     name: unit-tests
-    needs: style
+    needs: stylua
     runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: false

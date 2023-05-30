@@ -56,7 +56,8 @@ jobs:
           make test
   docs:
     runs-on: ubuntu-latest
-    name: generate-help-file-from-readme
+    name: help-file
+    needs: unit-tests
     steps:
       - uses: actions/checkout@v2
       - name: panvimdoc

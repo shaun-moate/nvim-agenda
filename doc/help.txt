@@ -1,4 +1,4 @@
-*help.txt*               For NVIM v0.8.0              Last change: 2023 May 30
+*help.txt*               For NVIM v0.8.0              Last change: 2023 May 31
 
 ==============================================================================
 Table of Contents                                     *help-table-of-contents*

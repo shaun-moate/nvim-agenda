@@ -16,7 +16,7 @@ jobs:
           sudo apt-get install -y luarocks
           sudo luarocks install luacheck
       - name: lint
-        run: sudo make lint
+        run: sudo make ci/lint
   stylua:
     name: style-stylua
     needs: luacheck
@@ -78,7 +78,7 @@ jobs:
           export PATH="${PWD}/_neovim/bin:${PATH}"
           export VIM="${PWD}/_neovim/share/nvim/runtime"
           nvim --version
-          make test
+          make ci/test
   docs:
     runs-on: ubuntu-latest
     name: help-file

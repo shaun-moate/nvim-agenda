@@ -5,7 +5,6 @@ I have a lot in my head, and want to get it out.  I have tried using Emacs, ende
  - keyword highlighting :white_check_mark:
  - search functionality :white_check_mark: 
  - toggle keywords :white_check_mark: 
- - set priority level
  - archive 'DONE' tasks
 
 With the above functionality I hope to stay on top and easily manage tasks - ensuring I don't lose ideas tragically becuase I just didn't quickly jot them down.
@@ -44,7 +43,6 @@ nvim-agenda comes with default configuration that you can override
   },
   signs = true,                                      -- toggle to show icons  
   signs_priority = 99,                               -- priority of icons
-  telescope_keywords = { "TODO" },                   -- keywords to search for when using AgendaTelescope
   throttle = 200,                                    -- throttle for highlight loop
   pattern = [[\KEYWORDS]],                           -- vim grep search pattern
 }
@@ -82,7 +80,7 @@ require'nvim-agenda'.setup({
 })
 
 -- set up keymap for easy access to AgendaTelescope
-vim.api.nvim_set_keymap("n", "ft", ":AgendaTelescope<CR>", {})
+vim.api.nvim_set_keymap("n", "ft", ":AgendaTelescope find=TODO<CR>", {})
 vim.api.nvim_set_keymap("n", "mtt", ":AgendaToggle to=TODO<CR>", {})
 vim.api.nvim_set_keymap("n", "mtd", ":AgendaToggle to=DONE<CR>", {})
 ```

@@ -10,9 +10,9 @@ local Utils = require("nvim-agenda.utils")
 local builtin = require("telescope.builtin")
 local make_entry = require("telescope.make_entry")
 
-local function find_lines()
-	local opts = {}
-	local keywords = Config.tags(Config.options.telescope_keywords)
+local function find_lines(opts)
+	opts = opts or {}
+	local keywords = Config.tags(ParseArgs(opts.find))
 
 	opts.prompt_title = "nvim-agenda: find lines"
 	opts.search = keywords
@@ -24,7 +24,7 @@ local function find_lines()
 		ret.display = function(entry)
 			local display = string.format("%s:%s:%s ", entry.filename, entry.lnum, entry.col)
 			local text = entry.text
-			local kw, start, finish = Utils.match_keyword(text)
+			local kw = Utils.match_keyword(text)
 			local hl = {}
 
 			if kw then
@@ -39,6 +39,16 @@ local function find_lines()
 		return ret
 	end
 	builtin.grep_string(opts)
+end
+
+function ParseArgs(kw_list)
+  assert(type(kw_list) == "string", "'find=' must be present and passed string type and comma-delimited if a list")
+  local all_keywords = vim.tbl_keys(Config.options.keywords)
+  local filter = vim.split(kw_list, ",")
+
+  return vim.tbl_filter(function(kw)
+      return vim.tbl_contains(filter, kw)
+    end, all_keywords)
 end
 
 return telescope.register_extension({ exports = { ["nvim-agenda"] = find_lines, find_lines = find_lines } })

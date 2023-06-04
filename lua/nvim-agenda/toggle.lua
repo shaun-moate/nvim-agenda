@@ -15,7 +15,7 @@ function M.toggle(to)
 end
 
 function M.check_keyword(kw)
-  local kw_to = string.gsub(kw, "to=", "", 1)
+  local kw_to = kw:match("to=(%S*)")
 
   assert(Utils.match_keyword(kw_to), "'to' keyword must be recognised keyword in config")
   return kw_to

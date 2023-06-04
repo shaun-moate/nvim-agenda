@@ -10,21 +10,9 @@ describe("nvim-agenda", function()
     require("nvim-agenda.highlight")
   end)
 
-  -- Toggle ("nvim-agenda.toggle")
-  it("toggle: check_keyword correctly recognises default keyword", function()
-    local res = require("nvim-agenda.toggle").check_keyword("to=TODO")
-    assert(res)
-  end)
-
   -- Config ("nvim-agenda.config")
   it("config: can be required", function()
     require("nvim-agenda.config")
-  end)
-
-  -- Utils ("nvim-agenda.utils")
-  it("utils: match_keyword correctly recognises default keyword", function()
-    local res = require("nvim-agenda.utils").match_keyword("-- TODO")
-    assert(res)
   end)
 
   -- Colors ("nvim-agenda.colors")

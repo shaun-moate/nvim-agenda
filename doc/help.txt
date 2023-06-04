@@ -1,4 +1,4 @@
-*help.txt*              For NVIM v0.8.0              Last change: 2023 June 03
+*help.txt*              For NVIM v0.8.0              Last change: 2023 June 04
 
 ==============================================================================
 Table of Contents                                     *help-table-of-contents*
@@ -20,8 +20,8 @@ I have a lot in my head, and want to get it out. I have tried using Emacs,
 ended up being not for me. I want to use Vim. I appreciated the power of
 Org-Agenda. I would like to bring some of that functionality to Vim. Key areas
 I would like covered: - keyword highlighting :white_check_mark: - search
-functionality :white_check_mark: - toggle keywords :white_check_mark: - set
-priority level - archive 'DONE' tasks
+functionality :white_check_mark: - toggle keywords :white_check_mark: - archive
+'DONE' tasks
 
 With the above functionality I hope to stay on top and easily manage tasks -
 ensuring I don’t lose ideas tragically becuase I just didn’t quickly jot
@@ -65,7 +65,6 @@ nvim-agenda comes with default configuration that you can override
       },
       signs = true,                                      -- toggle to show icons  
       signs_priority = 99,                               -- priority of icons
-      telescope_keywords = { "TODO" },                   -- keywords to search for when using AgendaTelescope
       throttle = 200,                                    -- throttle for highlight loop
       pattern = [[\KEYWORDS]],                           -- vim grep search pattern
     }
@@ -104,7 +103,7 @@ An example configuration at setup could be as follows
     })
     
     -- set up keymap for easy access to AgendaTelescope
-    vim.api.nvim_set_keymap("n", "ft", ":AgendaTelescope<CR>", {})
+    vim.api.nvim_set_keymap("n", "ft", ":AgendaTelescope find=TODO<CR>", {})
     vim.api.nvim_set_keymap("n", "mtt", ":AgendaToggle to=TODO<CR>", {})
     vim.api.nvim_set_keymap("n", "mtd", ":AgendaToggle to=DONE<CR>", {})
 <

@@ -14,16 +14,21 @@ With the above functionality I hope to stay on top and easily manage tasks - ens
 Best with Telescope and a patched font installed
 
 
-## How to Install
-** __tbd__ on package manager (still learning lua and vim plugins!) **
+## Installation
 
-Easily install it locally
+Using plug:
 ```lua
-vim.opt.runtimepath:append([/PATH/TO/PROJECT])
+Plug 'shaun-moate/nvim-agenda'
+```
 
-require'nvim-agenda'.setup({
-  <insert your configuration options>
-})
+Using Packer:
+```lua
+use 'shaun-moate/nvim-agenda'
+```
+
+Using lazy:
+```lua
+require('nvim-agenda').setup()
 ```
 
 nvim-agenda comes with default configuration that you can override
@@ -31,15 +36,15 @@ nvim-agenda comes with default configuration that you can override
 {
   keywords = {                                       -- keywords with patch font icon and colorscheme
     TODO = { 
-			icon = " ", 
-			color = "AgendaYellow",                        
-			telescope_color = "AgendaYellowTransparentBg"
-			},  
+      icon = " ", 
+      color = "AgendaYellow",                        
+      telescope_color = "AgendaYellowTransparentBg"
+      },  
     DONE = { 
-			icon = " ", 
-			color = "AgendaGreen",
-			telescope_color = "AgendaGreenTransparentBg"
-			},
+      icon = " ", 
+      color = "AgendaGreen",
+      telescope_color = "AgendaGreenTransparentBg"
+      },
   },
   signs = true,                                      -- toggle to show icons  
   signs_priority = 99,                               -- priority of icons
@@ -55,25 +60,25 @@ vim.opt.runtimepath:append([/home/user/code/nvim-agenda])
 require'nvim-agenda'.setup({
   keywords = {
     SUSPEND = { 
-			icon = "󱍥 ", 
-			color = "AgendaRed" 
-			telescope_color = "AgendaRedTransparentBg"
-			},
+      icon = "󱍥 ", 
+      color = "AgendaRed" 
+      telescope_color = "AgendaRedTransparentBg"
+      },
     TODO = { 
-			icon = " ", 
-			color = "AgendaYellow" 
-			telescope_color = "AgendaYellowTransparentBg"
-			},
+      icon = " ", 
+      color = "AgendaYellow" 
+      telescope_color = "AgendaYellowTransparentBg"
+      },
     FOCUS = { 
-			icon = "󰈸 ", 
-			color = "AgendaOrange" 
-			telescope_color = "AgendaOrangeTransparentBg"
-			},
+      icon = "󰈸 ", 
+      color = "AgendaOrange" 
+      telescope_color = "AgendaOrangeTransparentBg"
+      },
     DONE = { 
-			icon = " ", 
-			color = "AgendaGreen" 
-			telescope_color = "AgendaGreenTransparentBg"
-			},
+      icon = " ", 
+      color = "AgendaGreen" 
+      telescope_color = "AgendaGreenTransparentBg"
+      },
   },
   telescope_keywords = { "SUSPEND", "TODO", "FOCUS" },
   theme = "gruvbox",

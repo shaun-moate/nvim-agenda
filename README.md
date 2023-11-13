@@ -31,6 +31,7 @@ Using lazy:
 require('nvim-agenda').setup()
 ```
 
+## Configuration
 nvim-agenda comes with default configuration that you can override
 ```lua
 {

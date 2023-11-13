@@ -15,6 +15,14 @@ local M = {
     orange = "#FE8019",
     red = "#FB4934",
   },
+  onedark = {
+    dark_bg = "#282C34",
+    dark_fg = "#EBDBB2",
+    green = "#98C379",
+    yellow = "#E5C07B",
+    orange = "#FE8019",
+    red = "#E06C75",
+  },
 }
 
 return M
